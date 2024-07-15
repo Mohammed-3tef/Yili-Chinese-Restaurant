@@ -1,0 +1,638 @@
+@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,545;1,545&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-family: "Ga Maamli", sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+section {padding: 6.25rem;}
+.sectionTitle {font-size: 3rem; color: white;}
+
+.reading {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: #97BEA4;
+    animation: growreading linear;
+    animation-timeline: scroll(root);
+}
+@keyframes growreading {
+    to {width: 100%;}
+}
+
+/* ====================>> Scroll Bar */
+
+#scrollbar::-webkit-scrollbar {
+    background-color: black;
+    width: 10px;
+    border-radius: 5px 0px 0px 5px; 
+}
+  
+#scrollbar::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+}
+  
+#scrollbar::-webkit-scrollbar-thumb {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, rgb(227, 242, 255)), color-stop(1, #97BEA4));
+    border-radius: 10px;
+}
+
+/* ==============================>> Scroll Button */
+
+.scrollBtn {
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  top: 85%;
+  left: 90%;
+  border: none;
+  display: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: fixed;
+  z-index: 0;
+}
+
+.scrollBtn:before {
+  content: '';
+  background: linear-gradient(45deg, #00aeff, #ff0000, #ff7300, #fffb00, #002bff, #7a00ff);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 50%;
+}
+
+.scrollBtn:active {color: #000}
+
+.scrollBtn:active:after {background: linear-gradient(45deg, #617a6e, rgb(212, 255, 234));}
+
+.scrollBtn:hover:before {opacity: 1;}
+
+.scrollBtn:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #559076;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* =====================================>> Header <<===================================== */
+
+header {
+    padding: .75rem 2.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    background-color: #030512;
+    .nav1 {
+        display: flex;
+        gap: 5rem;
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: 600ms;
+        }
+    }
+    span {display: none; cursor: pointer; color: white;}
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: #120309;
+    overflow-x: hidden;
+    transition: 0.55s;
+    align-content: center;
+    a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 27.5px;
+      color: white;
+      display: block;
+      transition: 0.35s;
+    }
+    .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 50px;
+      margin-left: 50px;
+    }
+}
+
+.logo {
+    font-size: 2.45rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+}
+
+.sidenav a:hover ,.nav1 a:hover {color: #97BEA4;}
+
+/* =====================================>> Hero Section <<===================================== */
+
+.Home {
+    position: relative;
+    padding: 3rem 0rem;
+    height: 100vh;
+    .mainPage {
+        position: relative;
+        z-index: 4;
+        height: 100vh;
+        align-content: center;
+        color: aliceblue;
+    }
+    .mainTitle {
+        font-size: 5rem;
+    }
+    .marginTitle {
+        font-size: 3.35rem;
+        word-spacing: 0.8rem;
+    }
+    .HomeDetails{
+        padding-top: 12.5rem;
+        display: flex;
+        justify-content: space-evenly;
+        p {font-size: 1.75rem;}
+    }
+    .homeSlider {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        .homeSlide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: slider 18.5s infinite;
+        }
+    }
+    .homeSlider .homeSlide:nth-child(1) {
+        background-image: url('https://images.pexels.com/photos/1907228/pexels-photo-1907228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        filter: brightness(55%);
+        animation-delay: -0;
+    }
+    .homeSlider .homeSlide:nth-child(2) {
+        background-image: url('https://images.pexels.com/photos/3054690/pexels-photo-3054690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        filter: brightness(55%);
+        animation-delay: -3.7s;
+    }
+    .homeSlider .homeSlide:nth-child(3) {
+        background-image: url('https://images.pexels.com/photos/699544/pexels-photo-699544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        filter: brightness(55%);
+        animation-delay: -7.4s;
+    }
+    .homeSlider .homeSlide:nth-child(4) {
+        background-image: url('https://images.pexels.com/photos/218769/pexels-photo-218769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        filter: brightness(55%);
+        animation-delay: -11.1s;
+    }
+    .homeSlider .homeSlide:nth-child(5) {
+        background-image: url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        filter: brightness(55%);
+        animation-delay: -14.8s;
+    }
+}
+
+@keyframes slider {
+    0%, 11%, 100% {
+      opacity: 1;
+      animation-timing-function: ease;
+      z-index: 0;
+    }
+    20% {
+      opacity: 0;
+      animation-timing-function: step-end;
+      z-index: 0;
+    }
+    91% {
+      opacity: 1;
+      animation-timing-function: step-end;
+      z-index: -1;
+    }
+}
+
+/* =====================================>> About <<===================================== */
+
+.About {
+    padding-bottom: 0rem;
+    color: white;
+    background-color: #0d1013;
+}
+
+.aboutDiv1 {
+    padding-top: 4rem;
+    p {
+        padding-top: 3.25rem;
+        strong {
+            font-size: 2rem;
+            font-family: "Nothing You Could Do", cursive;
+        }
+    }
+    .YiliImg {
+        width: 45%;
+        height: 45%;
+        border-radius: 2rem;
+        transition: 450ms;
+    }
+}
+
+.aboutDetails {
+    padding-top: 2.5rem;
+    strong{
+        font-size: 2rem;
+        font-family: "Nothing You Could Do", cursive;
+    }
+}
+
+.YiliImg:hover {
+    scale: 1.02;
+    filter: drop-shadow(0 0 1.5rem white);
+}
+
+
+/* =====================================>> Menu <<===================================== */
+
+.Menu { background-color: #0d1013;}
+
+.meals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+}
+
+/* =====================================>> FeedBack <<===================================== */
+
+.FeedBack {
+    background-image: url('https://png.pngtree.com/background/20211216/original/pngtree-dining-shop-at-night-decorated-with-lanterns-at-the-entrance-of-picture-image_1534993.jpg');
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.slider {
+    padding: 5rem 0rem;
+    position: relative;
+    align-content: center;
+    width: 100%;
+    overflow: hidden;
+    .slides {
+        display: flex;
+        transition: transform 0.75s ease-in-out;
+    }
+    .slide {
+        margin: 0rem 1.25rem;
+        padding: 2.5rem 2rem;
+        align-content: space-around;
+        min-width: fit-content;
+        min-height: 100%;
+        box-sizing: border-box;
+        border-radius: 1.75rem;
+        background-image: linear-gradient(to bottom right, #70BB9A, white);
+        transition: 450ms;
+    }
+    .clientName {
+        padding-top: 3.75rem;
+        padding-bottom: 1.5rem;
+        font-size: 2.5rem;
+    }
+    .clientReview strong{
+        font-family: "Nothing You Could Do", cursive;;
+        font-size: 2.8rem;
+    }
+}
+
+.sliderBtn {
+    display: flex;
+    justify-content: space-evenly;
+    border: none;
+    button {
+        font-size: 2.5rem;
+        text-align: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: #70BB9A;
+    }
+}
+
+.slide:hover {scale:1.005; filter: drop-shadow(0 0 0.75rem white);}
+
+/* =====================================>> Contact Us <<===================================== */
+
+.Contact { background-color: #0d1013;}
+.Contact form {
+    padding-top: 3rem;
+}
+
+.form-control {
+  position: relative;
+  margin: auto;
+  width: 65%;
+  padding-bottom: 2rem;
+}
+
+.form-control input, textarea {
+    text-align: left;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px white solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: white;
+}
+
+textarea {resize: none;}
+
+.form-control input:focus, textarea:focus,
+.form-control input:valid, textarea:valid {
+  outline: 0;
+  border-bottom-color: white;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: white;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span, textarea:focus+label span,
+.form-control input:valid+label span, textarea:valid+label span {
+  color: #70BB9A;
+  transform: translateY(-30px);
+}
+
+.primary-button {
+  width: 8em;
+  position: relative;
+  height: 2.75em;
+  border: 3px ridge #70BB9A;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 1.75rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary-button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #0d1013;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+.primary-button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #0d1013;
+  transition: 0.5s;
+}
+
+.primary-button:hover::before, .primary-button:hover::after {
+  transform: scale(0)
+}
+
+.primary-button:hover {
+  box-shadow: inset 0px 0px 25px #70BB9A;
+}
+
+/* =====================================>> Footer <<===================================== */
+
+footer {
+    background-image: url('https://png.pngtree.com/background/20230516/original/pngtree-small-dark-room-filled-with-old-furniture-and-oriental-lanterns-picture-image_2601802.jpg');
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    color: white;
+}
+
+.footerTitle {font-size: 3.5rem; padding-top: 3rem;}
+.follow {padding:2rem 0rem; font-size: 2.5rem;}
+.social {
+    padding-bottom: 3.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        transition: 450ms;
+    }
+}
+
+.email, .phone, .address {font-size: 1.5rem;}
+.copyRight {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.25rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    word-spacing: 0.25rem;
+}
+
+.social a:hover {color: #97BEA4;}
+
+/* =====================================>> Responsive Website <<===================================== */
+
+/* ===========================>> Tablet */
+
+@media only screen and (max-width: 1000px){
+    header {
+        span {display: block; font-size: xx-large;}
+        .nav1 {display: none;}
+    }
+    .Home {
+        .mainTitle {font-size: 4.25rem;}
+        .marginTitle {font-size: 3.25rem;}
+        .HomeDetails p{font-size: 2.25rem;}
+    }
+    
+}
+
+@media (max-device-width: 768px){
+    header {
+        span {display: block; font-size: xx-large;}
+        .nav1 {display: none;}
+    }
+    .About, .Menu, .FeedBack, .Contact {padding: 6.25rem 3.25rem;}
+    .Menu {padding: 6.25rem 2.25rem;}
+    .scrollBtn {
+        top: 85%;
+        left: 85%;
+    }
+}
+
+/* ===========================>> Mobile */
+
+@media only screen and (max-width: 700px){
+    header {
+        span {font-size: x-large;}
+        .logo {font-size: 2rem;}
+    }
+    .Home {
+        .mainTitle {font-size: 3.25rem;}
+        .marginTitle {font-size: 2.25rem;}
+        .HomeDetails p{font-size: 1.25rem;}
+    }
+    .About {
+        padding: 2.5rem;
+        .YiliImg {scale: 1.35; padding-top: 1.5rem;}
+        .YiliImg:hover {border-radius: 0rem;}
+        .aboutDiv1 strong, .aboutDetails strong {font-size: 1.4rem;}
+    }
+    .Menu {padding: 2.5rem;}
+    .FeedBack {
+        padding: 2.25rem;
+        .clientReview strong {font-size: 1.65rem;}
+        .clientName {font-size: 2rem;}
+        .slide {padding: 2.75rem 0.8rem;}
+        .sliderBtn {
+            justify-content: space-around;
+        }
+    }
+    .Contact {
+        padding: 5rem 0.25rem;
+        .primary-button {width: 6.75em;}
+    }
+    footer {
+        .footerTitle {font-size: 2.65rem;}
+        .follow {font-size: 1.75rem;}
+        .social {
+            gap: 2.75rem;
+            a{font-size: 1rem;}
+        }
+        .email, .phone, .address {font-size: 1rem;}
+        .copyRight {font-size: 0.75rem;}
+    }
+}
+
+@media (max-device-width: 430px){
+    header {
+        span {font-size: x-large;}
+        .logo {font-size: 1.75rem;}
+    }
+    .Home {
+        .mainTitle {font-size: 3.25rem;}
+        .marginTitle {font-size: 2.25rem;}
+        .HomeDetails p{font-size: 1.25rem;}
+    }
+    .About {
+        padding: 2.5rem;
+        .YiliImg {scale: 1.35; padding-top: 1.5rem;}
+        .YiliImg:hover {border-radius: 0rem;}
+        .aboutDiv1 strong, .aboutDetails strong {font-size: 1.4rem;}
+    }
+    .Menu {
+        padding: 2.5rem;
+    }
+    .FeedBack {
+        padding: 2.25rem;
+        .clientReview strong {font-size: 1.65rem;}
+        .clientName {font-size: 2rem;}
+        .slide {padding: 2.5rem 0.8rem;}
+        .sliderBtn {
+            justify-content: space-around;
+        }
+    }
+    .Contact {
+        padding: 5rem 0.25rem;
+        .primary-button {width: 6.75em;}
+    }
+    footer {
+        .footerTitle {font-size: 2.65rem;}
+        .follow {font-size: 1.75rem;}
+        .social {
+            gap: 2.75rem;
+            a{font-size: 1rem;}
+        }
+        .email, .phone, .address {font-size: 1rem;}
+        .copyRight {font-size: 0.75rem;}
+    }
+    .scrollBtn {
+        top: 85%;
+        left: 75%;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-device-width: 330px) {
+    .sidenav {
+        a {
+            font-size: 24px;
+        }
+    }
+    .Home {
+        .mainTitle {font-size: 3rem;}
+        .marginTitle {font-size: 2rem;}
+    }
+    .FeedBack {
+        padding: 2.25rem 0.25rem;
+        .slide {padding: 1.5rem 0.8rem;}
+    }
+}
