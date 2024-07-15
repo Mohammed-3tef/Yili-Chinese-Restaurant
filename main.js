@@ -83,10 +83,12 @@ menu.forEach((item) => {
         
         <style>
             .card {
-                max-width: 25rem; 
-                max-hiegh: 40rem; 
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30rem; 
+                min-height: fit-content; 
                 background-color: #70BB9A; 
-                margin: auto; 
                 padding: 2.5rem; 
                 border-radius: 2.5rem;
                 transition: 450ms;
@@ -100,6 +102,7 @@ menu.forEach((item) => {
                 }
             }
             .buyNow {
+                margin: 0rem auto;
                 text-decoration: none;
                 transition: 450ms;
                 color: black;
@@ -110,9 +113,9 @@ menu.forEach((item) => {
             
             @media (max-device-width: 430px) {
                 .card {
-                    max-width: 100%; 
-                    max-hiegh: 30rem; 
-                    padding: 1.75rem;
+                    width: 100%; 
+                    max-height: fit-content; 
+                    padding: 1.2rem;
                     .mealTitle {font-size: 2.25rem;}
                     .mealDetails {
                         font-size: 1rem;
