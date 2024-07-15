@@ -271,8 +271,8 @@ header {
         }
     }
     .YiliImg {
-        width: 45%;
-        height: 45%;
+        max-width: 45%;
+        max-height: 45%;
         border-radius: 2rem;
         transition: 450ms;
     }
@@ -583,9 +583,14 @@ footer {
     }
     .About {
         padding: 2.5rem;
-        .YiliImg {scale: 1.35; padding-top: 1.5rem;}
-        .YiliImg:hover {border-radius: 0rem;}
+        .YiliImg {
+            max-width: 50%;
+            max-height: 50%;
+            padding-top: 1.5rem; 
+            border-radius: 0rem;
+        }
         .aboutDiv1 strong, .aboutDetails strong {font-size: 1.4rem;}
+        .aboutDiv1 p {padding-top: 4.5rem;}
     }
     .Menu {
         padding: 2.5rem;
