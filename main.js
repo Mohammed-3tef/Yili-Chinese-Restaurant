@@ -114,7 +114,6 @@ menu.forEach((item) => {
             @media (max-device-width: 430px) {
                 .card {
                     width: 100%; 
-                    max-height: fit-content; 
                     padding: 1.2rem;
                     .mealTitle {font-size: 2.25rem;}
                     .mealDetails {
