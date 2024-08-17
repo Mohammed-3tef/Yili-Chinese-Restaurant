@@ -10,7 +10,12 @@
     scroll-behavior: smooth;
 }
 
-section {padding: 6.25rem;}
+.maxWidth {
+    max-width: 1350px;
+    margin: 0rem auto;
+}
+
+section {padding: 6rem;}
 .sectionTitle {font-size: 3rem; color: white;}
 
 .reading {
