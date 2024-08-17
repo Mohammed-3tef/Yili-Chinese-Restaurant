@@ -3,6 +3,11 @@ const slides = document.querySelector(".slides");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
 
+window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+})
+
 function openNav() {
     document.getElementById("mySidenav").style.width = "50%";
 }
